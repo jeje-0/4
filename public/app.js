@@ -1,4 +1,4 @@
-const CANDIDATES = ["김길동", "이길동", "박길동", "소길동", "한길동"];
+const CANDIDATES = ["강옥림", "권오윤", "이상길", "이상엽", "최용철", "한삼전", "이삼열"];
 let choices = {};
 let selectedCategory = '';
 
