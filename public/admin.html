@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>관리자 - 제22차 IVF 정기총회 투표 집계</title>
+<style>
+  :root{
+    --green: #2a6e47;
+    --green-deep: #1e5636;
+    --pink: #e05a97;
+    --pink-light: #f8c9de;
+    --yellow: #e0c800;
+    --yellow-light: #f5eeb0;
+    --cream: #faf6ee;
+    --ink: #1f2d24;
+    --line: #e4ddd0;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:28px 20px 60px;}
+  h1{font-size:20px;font-weight:800;color:var(--green-deep);margin:0 0 4px;}
+  .sub{font-size:13px;color:#5b6b60;margin:0 0 24px;}
+
+  .login-box{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;}
+  .login-box label{display:block;font-size:13px;font-weight:700;margin-bottom:8px;}
+  .login-box input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);font-size:15px;}
+  .login-box button{width:100%;margin-top:14px;padding:14px;border:none;border-radius:12px;
+    background:var(--green);color:#fff;font-size:15px;font-weight:800;cursor:pointer;}
+  .err{color:#c0304a;font-size:13px;margin-top:10px;}
+
+  .stat-row{display:flex;align-items:baseline;gap:8px;margin-bottom:20px;}
+  .stat-row .num{font-size:34px;font-weight:800;color:var(--green-deep);}
+  .stat-row .num small{font-size:16px;color:#8b9a90;}
+  .bar-track{height:8px;border-radius:999px;background:var(--line);overflow:hidden;margin-bottom:32px;}
+  .bar-fill{height:100%;background:var(--green);border-radius:999px;transition:width .4s ease;}
+
+  #resultsView{display:none;}
+
+  .candidate-block{background:#fff;border:1px solid var(--line);border-radius:20px;
+    padding:20px 16px 24px;margin-bottom:20px;}
+  .candidate-name{text-align:center;font-size:22px;font-weight:800;margin-top:10px;}
+
+  .gauge-wrap{display:flex;justify-content:center;}
+  .gauge-wrap svg{width:100%;height:auto;max-width:320px;}
+
+  .stack-chart{display:flex;justify-content:center;gap:14px;margin-top:4px;}
+  .stack-col{width:70px;display:flex;flex-direction:column;align-items:center;}
+  .stack-bar{width:100%;height:150px;display:flex;flex-direction:column;justify-content:flex-end;
+    border-radius:6px 6px 3px 3px;overflow:hidden;background:#f4f1e9;}
+  .stack-seg{width:100%;display:flex;align-items:center;justify-content:center;
+    font-size:10px;color:#1f2d24;line-height:1.3;text-align:center;overflow:hidden;}
+  .stack-col-label{margin-top:8px;font-size:14px;font-weight:800;}
+  .stack-col-total{font-size:11px;color:#8b9a90;margin-top:2px;}
+
+  .legend-row{display:flex;justify-content:center;gap:14px;margin-top:16px;flex-wrap:wrap;}
+  .legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:#5b6b60;}
+  .legend-dot{width:9px;height:9px;border-radius:50%;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>관리자 - 실시간 투표 집계</h1>
+  <p class="sub">제22차 IVF 정기총회 법인이사 선출투표</p>
+
+  <div id="loginView" class="login-box">
+    <label>관리자 비밀번호</label>
+    <input type="password" id="adminKeyInput" placeholder="비밀번호 입력">
+    <button id="loginBtn">확인</button>
+    <div class="err" id="loginErr" style="display:none;"></div>
+  </div>
+
+  <div id="resultsView">
+    <div class="stat-row">
+      <div class="num"><span id="voteCount">0</span><small> / 90명 참여</small></div>
+    </div>
+    <div class="bar-track"><div class="bar-fill" id="barFill" style="width:0%"></div></div>
+    <div id="candidatesArea"></div>
+  </div>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>
