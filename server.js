@@ -7,7 +7,7 @@ const ADMIN_KEY = process.env.ADMIN_KEY || 'ivf2026admin';
 const DATA_FILE = path.join(__dirname, 'votes.json');
 const PUBLIC_DIR = path.join(__dirname, 'public');
 const CANDIDATES = ['김길동', '이길동', '박길동', '소길동', '한길동'];
-const TOTAL_TARGET = 90;
+const TOTAL_TARGET = 75;
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
