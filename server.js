@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 const ADMIN_KEY = process.env.ADMIN_KEY || 'ivf2026admin';
 const DATA_FILE = path.join(__dirname, 'votes.json');
 const PUBLIC_DIR = path.join(__dirname, 'public');
-const CANDIDATES = ['김길동', '이길동', '박길동', '소길동', '한길동'];
+const CANDIDATES = ['이삼열', '강옥림', '권오윤', '이상길', '이상엽', '최용철', '한삼전'];
 const TOTAL_TARGET = 75;
 
 // Upstash Redis 환경변수가 설정되어 있으면 그걸 영구 저장소로 사용하고,
