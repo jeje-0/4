@@ -10,7 +10,7 @@ function getDeviceToken(){
 }
 
 let TEST_MODE = false; // 서버의 TEST_MODE 값을 따라갑니다
-const CANDIDATES = ["김길동", "이길동", "박길동", "소길동", "한길동"];
+const CANDIDATES = ["이삼열", "강옥림", "권오윤", "이상길", "이상엽", "최용철", "한삼전"];
 let choices = {};
 let selectedCategory = '';
 
