@@ -10,7 +10,7 @@ function getDeviceToken(){
 }
 
 let TEST_MODE = false; // 서버의 TEST_MODE 값을 따라갑니다
-const CANDIDATES = ["김길동", "이길동", "박길동", "소길동", "한길동"];
+let CANDIDATES = []; // 후보 이름은 server.js에서 불러옵니다 (수정은 server.js 한 곳만)
 let choices = {};
 let selectedCategory = '';
 
