@@ -212,8 +212,8 @@ const server = http.createServer((req, res) => {
     return handleVote(req, res);
   }
   if (req.method === 'GET' && req.url === '/api/config') {
-    return sendJson(res, 200, { testMode: TEST_MODE });
-  }
+   return sendJson(res, 200, { candidates: CANDIDATES, total: TOTAL_TARGET, testMode: TEST_MODE });
+    
   if (req.method === 'GET' && req.url === '/api/count') {
     return handleCount(req, res);
   }
