@@ -27,6 +27,18 @@ function buildTable(data){
   const table = document.getElementById('resultsTable');
   table.innerHTML = '';
 
+ // ---- 헤더 0행: 후보명(3행 병합) / 구분별 참여인원·찬성 합계 요약 ----
+  const summaryRow = document.createElement('tr');
+  summaryRow.innerHTML = `<th class="cand-head" rowspan="3">후보명</th>`;
+  GROUP_ORDER.forEach(g => {
+    const p = groupParticipants[g] ?? 0;
+    const yes = groupTotals[g] ? groupTotals[g].찬성 : 0;
+    summaryRow.innerHTML += `<th class="summary-head" colspan="${CHOICE_ORDER.length}">총 ${p} 명 참여 / 찬성 ${yes}표</th>`;
+  });
+  const totalYesAll = GROUP_ORDER.reduce((s, g) => s + (groupTotals[g] ? groupTotals[g].찬성 : 0), 0);
+  summaryRow.innerHTML += `<th class="summary-head total-group" colspan="${CHOICE_ORDER.length}">전체 ${data.count}명 / 찬성 ${totalYesAll}표</th>`;
+
+  
   // ---- 헤더 1행: 후보명 / 이사 / 간사 / 학사·학생 / 합계 ----
   const headRow1 = document.createElement('tr');
   headRow1.innerHTML = `<th class="cand-head" rowspan="2">후보명</th>`;
